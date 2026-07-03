@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Christopher Masukume — Data Scientist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f2f2f0;
+      --grey: #1c1c1c;
+      --grey-mid: #2e2e2e;
+      --grey-light: #5a5a5a;
+      --border-w: 2px;
+    }
+
+    body {
+      font-family: 'Space Grotesk', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      cursor: crosshair;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NOISE OVERLAY ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 64px;
+      border-bottom: var(--border-w) solid var(--white);
+      background: var(--black);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0;
+    }
+    .nav-links li { border-left: var(--border-w) solid var(--white); }
+    .nav-links a {
+      display: block;
+      padding: 0 24px;
+      height: 64px;
+      line-height: 64px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--white); color: var(--black); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      padding-top: 64px;
+      border-bottom: var(--border-w) solid var(--white);
+    }
+
+    .hero-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 64px 48px 0;
+      border-bottom: var(--border-w) solid var(--white);
+    }
+
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      text-transform: uppercase;
+      margin-bottom: 48px;
+    }
+    h1 .invert {
+      display: inline-block;
+      background: var(--white);
+      color: var(--black);
+      padding: 0 12px 4px;
+    }
+
+    .hero-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr auto;
+      border-top: var(--border-w) solid var(--white);
+    }
+    .hero-bar-cell {
+      padding: 28px 32px;
+      border-right: var(--border-w) solid var(--white);
+    }
+    .hero-bar-cell:last-child { border-right: none; }
+    .hbc-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-bottom: 8px;
+    }
+    .hbc-val {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+    .hbc-big {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .hero-cta-cell {
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: var(--border-w) solid var(--white);
+      cursor: crosshair;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn:hover { background: var(--white); color: var(--black); }
+    .btn-solid { background: var(--white); color: var(--black); }
+    .btn-solid:hover { background: transparent; color: var(--white); }
+
+    /* ── SECTIONS ── */
+    section { border-bottom: var(--border-w) solid var(--white); }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      border-bottom: var(--border-w) solid var(--white);
+    }
+    .sl-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      padding: 16px 32px;
+      border-right: var(--border-w) solid var(--white);
+      white-space: nowrap;
+    }
+    .sl-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      padding: 16px 40px;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .about-left {
+      padding: 64px 48px;
+      border-right: var(--border-w) solid var(--white);
+    }
+    .about-left p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #c8c8c5;
+      margin-bottom: 20px;
+    }
+    .about-left p strong { color: var(--white); font-weight: 500; }
+
+    .about-right { display: flex; flex-direction: column; }
+
+    .exp-item {
+      padding: 32px 40px;
+      border-bottom: var(--border-w) solid var(--white);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-role {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .exp-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--grey-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .exp-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #a8a8a5;
+      line-height: 1.65;
+    }
+
+    .skills-block {
+      padding: 32px 40px;
+      border-top: var(--border-w) solid var(--white);
+    }
+    .skills-block .hbc-label { margin-bottom: 16px; }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .skill-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--grey-mid);
+      padding: 6px 14px;
+      color: #a8a8a5;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .skill-tag:hover { border-color: var(--white); color: var(--white); }
+
+    /* ── PROJECTS ── */
+    .projects-list { display: flex; flex-direction: column; }
+    .project-row {
+      display: grid;
+      grid-template-columns: 60px 1fr auto;
+      align-items: start;
+      border-bottom: var(--border-w) solid var(--grey-mid);
+      transition: background 0.15s;
+      cursor: crosshair;
+    }
+    .project-row:last-child { border-bottom: none; }
+    .project-row:hover { background: var(--grey); }
+
+    .project-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--grey-light);
+      padding: 32px 0 32px 48px;
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+    .project-body { padding: 32px 40px; }
+    .project-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #a8a8a5;
+      line-height: 1.7;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ptag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      border: 1px solid var(--grey-mid);
+      padding: 4px 10px;
+    }
+    .project-arrow {
+      padding: 32px 40px;
+      font-size: 1.4rem;
+      align-self: center;
+      color: var(--grey-light);
+      transition: color 0.15s, transform 0.2s;
+    }
+    .project-row:hover .project-arrow { color: var(--white); transform: translate(4px, -4px); }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .contact-left {
+      padding: 64px 48px;
+      border-right: var(--border-w) solid var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .contact-headline {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: 32px;
+    }
+    .contact-email {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      color: var(--grey-light);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .contact-right { padding: 64px 48px; }
+    .contact-form { display: flex; flex-direction: column; gap: 0; }
+
+    .form-field {
+      border-bottom: var(--border-w) solid var(--grey-mid);
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+      transition: border-color 0.2s;
+    }
+    .form-field:focus-within { border-color: var(--white); }
+    .form-field:first-child { border-top: var(--border-w) solid var(--grey-mid); }
+
+    .form-field label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-bottom: 8px;
+    }
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      width: 100%;
+      caret-color: var(--white);
+    }
+    .form-field select option { background: var(--black); }
+    .form-field textarea { resize: none; min-height: 100px; line-height: 1.6; }
+
+    .form-submit {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .form-note {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--grey-light);
+      letter-spacing: 0.06em;
+    }
+
+    .success-banner {
+      display: none;
+      margin-top: 24px;
+      padding: 20px;
+      border: var(--border-w) solid var(--white);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0;
+    }
+    .footer-left {
+      padding: 32px 48px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      border-right: var(--border-w) solid var(--white);
+    }
+    .footer-center {
+      padding: 32px 48px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      text-align: center;
+      border-right: var(--border-w) solid var(--white);
+    }
+    .footer-right {
+      padding: 32px 48px;
+      display: flex;
+      gap: 32px;
+      justify-content: flex-end;
+    }
+    .footer-right a {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      transition: color 0.15s;
+    }
+    .footer-right a:hover { color: var(--white); }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      h1 { font-size: clamp(3rem, 16vw, 5rem); }
+      .hero-main { padding: 40px 24px 0; }
+      .hero-bar { grid-template-columns: 1fr 1fr; }
+      .hero-cta-cell { grid-column: span 2; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-left, .contact-left, .about-right { border-right: none; }
+      .contact-left { border-bottom: var(--border-w) solid var(--white); }
+      .project-row { grid-template-columns: 40px 1fr auto; }
+      .project-num { padding-left: 20px; }
+      footer { grid-template-columns: 1fr; }
+      .footer-left, .footer-center { border-right: none; border-bottom: var(--border-w) solid var(--white); }
+      .footer-right { justify-content: flex-start; padding: 24px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">Christopher Masukume</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" onclick="downloadResume(event)">Resume ↓</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-main">
+      <div class="hero-eyebrow">Data Scientist · Machine Learning Engineer · Open to Work</div>
+      <h1>
+        Christopher<br>
+        <span class="invert">Masukume</span><br>
+        Builds.
+      </h1>
+    </div>
+    <div class="hero-bar">
+      <div class="hero-bar-cell">
+        <div class="hbc-label">Experience</div>
+        <div class="hbc-big">1<span style="font-size:1.2rem;font-weight:300">yr</span></div>
+      </div>
+      <div class="hero-bar-cell">
+        <div class="hbc-label">Projects Shipped</div>
+        <div class="hbc-big">6+</div>
+      </div>
+      <div class="hero-bar-cell">
+        <div class="hbc-label">Focus</div>
+        <div class="hbc-val" style="margin-top:6px;">Distributed<br>Systems · APIs<br>Developer Tooling</div>
+      </div>
+      <div class="hero-cta-cell">
+        <a href="#projects" class="btn btn-solid">View Work</a>
+        <a href="#contact" class="btn">Hire Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">
+      <span class="sl-tag">§ 01</span>
+      <span class="sl-title">About</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-left reveal">
+        <p>
+          With my experience as a <strong>Data Scientist</strong> at Lexis, I have been contributing to the development of an agentic AI platform. My work focuses on designing and implementing system architectures that seamlessly integrate reasoning models with backend databases and observability stacks, to monitor system performance and develop comprehensive dashboards. I also specialize in building data pipelines, implementing ETL processes, and creating monitoring and metrics strategies using tools such as Prometheus and Grafana.
+        </p>
+
+        <p>
+          My skills in PostgreSQL, SQL, and Machine Learning have enabled me to develop prototype components, establish robust model evaluation frameworks, and support data-driven decision-making processes. I am motivated by opportunities to advance AI technologies and contribute to innovative solutions that drive impactful results.
+        </p>
+
+        <br />
+        <div class="skills-block" style="padding:0;border:none;">
+          <div class="hbc-label">Skills</div>
+          <div class="skills-list">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Deep Learning</span>
+            <span class="skill-tag">Data Science</span>
+            <span class="skill-tag">Data Engineering</span>
+            <span class="skill-tag">ETL Pipelines</span>
+            <span class="skill-tag">GIS</span>
+            <span class="skill-tag">ArcGIS Pro</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">MLflow</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Azure</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">Prometheus</span>
+            <span class="skill-tag">Grafana</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Scikit-learn</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+          </div>          
+        </div>
+      </div>
+      <div class="about-right reveal" style="transition-delay:0.1s">
+        <div class="exp-item">
+          <div class="exp-role">Full Stack & AI Solutions Engineer</div>
+          <div class="exp-meta">Omdena · 2026 – Present</div>
+          <div class="exp-desc">• Contributed to workflow analysis, stakeholder mapping, and business process documentation to identify opportunities for AI-driven automation and improved citizen engagement.</div>
+          <div class="exp-desc">• Participated in the design of conversational AI systems, agent orchestration workflows, and NLP-powered service interactions.</div>
+          <div class="exp-desc">• Supported API integration planning, shared infrastructure design, repository governance, and technical documentation activities.</div>
+          <div class="exp-desc">• Worked in an Agile environment using GitHub, CI/CD practices, and collaborative software development workflows.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-role">Data Scientist</div>
+          <div class="exp-meta">Lexxis · 2025 – Present</div>
+          <div class="exp-desc">•	Built CI/CD-ready Docker containers managed via Git, enabling reproducible experiment workflows and deployment consistency for model releases.</div>
+          <div class="exp-desc">•	Evaluated 3 model observability tools and recommended a rollout path that improved monitoring coverage and supported more reliable production deployments.</div>
+          <div class="exp-desc">•	Developed REST APIs and prototype interfaces for 2 stakeholder demos, reducing feedback cycles and accelerating product iteration during the model deployment phase.</div>
+          <div class="exp-desc">•	Created monitoring dashboards in Grafana and Power BI for model performance, data drift, and system metrics to improve operational visibility and enable early intervention on production issues.</div>
+          <div class="exp-desc">•	Applied feature engineering using Pandas and NumPy and benchmarked models with Scikit-learn to improve latency, throughput, and accuracy.</div>
+          <div class="exp-desc">•	Implemented ETL pipelines processing multisource datasets daily using SQL and PostgreSQL, incorporating data cleaning, data wrangling, and query optimization.</div>
+          <div class="exp-desc">•	Contributed to platform architecture for scalable model deployment and monitoring integration.</div>
+          <div class="exp-desc">•	Prepared AWS-compatible monitoring architecture with planned integration into CloudWatch and cloud-native observability workflows.</div>
+          <div class="exp-desc">•	Developed evaluation workflows for monitoring LLM performance across factual recall, reasoning, summarization, coherence, latency, and hallucination metrics on AWS infrastructure.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-role">GIS Analyst</div>
+          <div class="exp-meta">Botswana Power Corporation · 2019 – Present</div>
+          <div class="exp-desc">•	Built dashboards and web applications used by 100+ stakeholders to monitor assets, assess risk, and support operational decisions.</div>
+          <div class="exp-desc">•	Automated geospatial processing workflows with Python and ArcPy, reducing processing time by 40%.</div>
+          <div class="exp-desc">•	Managed enterprise geodatabases integrated with SCADA and operational systems to improve data integrity and accessibility.</div>
+          <div class="exp-desc">•	Performed spatial analysis and data quality checks to maintain geospatial standards.</div>
+          <div class="exp-desc">•	Led field data collection and validation for infrastructure assets to improve database accuracy.</div>
+          <div class="exp-desc">•	Supervised contractors and internal teams to maintain delivery quality, safety compliance, and schedule adherence.</div>
+          <div class="exp-desc">•	Designed an infrastructure monitoring dashboard to identify risk zones and improve response planning.</div>
+          <div class="exp-desc">•	Supported risk identification and spatial monitoring of critical infrastructure, enabling improved prioritization and response planning for high-risk areas.</div>
+          <div class="exp-desc">•	Delivered training and support to increase adoption of GIS tools and workflows.</div>
+        </div>
+        <div class="skills-block">
+          <div class="hbc-label">Education</div>
+          <div style="font-size:0.95rem;font-weight:500;margin-bottom:4px;">BSc Data Science</div>
+          <div style="font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--grey-light);">IU International University of Applied Sciences · 2022</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">
+      <span class="sl-tag">§ 02</span>
+      <span class="sl-title">Projects</span>
+    </div>
+    <div class="projects-list">
+
+      <div class="project-row reveal">
+        <div class="project-num">01</div>
+        <div class="project-body">
+          <div class="project-name">Model Monitoring & Performance Tracking System</div>
+          <div class="project-desc"><strong>Developed a monitoring and observability system to track machine learning model performance and data drift in production environments.</strong></div>
+          <div class="project-desc">•	Built dashboards using Grafana and Prometheus to monitor model performance and system reliability.</div>
+          <div class="project-desc">•	Defined and tracked key performance indicators (latency, throughput, accuracy)</div>
+          <div class="project-desc">•	Developed dashboards using Power BI to visualize trends and support decision-making.</div>
+          <div class="project-tags">
+            <span class="ptag">Node.js</span>
+            <span class="ptag">Kafka</span>
+            <span class="ptag">Redis</span>
+            <span class="ptag">PostgreSQL</span>
+            <span class="ptag">Docker</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+
+      <div class="project-row reveal" style="transition-delay:0.05s">
+        <div class="project-num">02</div>
+        <div class="project-body">
+          <div class="project-name">Mental Health Data Analysis</div>
+          <div class="project-desc">Conducted exploratory data analysis and applied machine learning techniques to a workplace mental health dataset to identify patterns, trends, and predictive factors influencing employee mental health.</div>
+          <div class="project-desc">•	Applied K-Means clustering and classification models using Scikit-learn, incorporating feature engineering to improve predictive performance.</div>
+          <div class="project-desc">•	Performed data cleaning and data wrangling on high-dimensional survey data, handling missing values and inconsistent inputs.</div>
+          <div class="project-desc">•	Developed visual dashboards and insights to support data-driven HR decision-making.</div>
+          <div class="project-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">FastAPI</span>
+            <span class="ptag">OpenTelemetry</span>
+            <span class="ptag">Rich CLI</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-label">
+      <span class="sl-tag">§ 03</span>
+      <span class="sl-title">Contact</span>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left reveal">
+        <div>
+          <div class="contact-headline">Let's<br>Work<br>Together.</div>
+          <div style="font-size:0.95rem;font-weight:300;color:#a8a8a5;line-height:1.8;max-width:360px;">
+            Open to full-time roles, contract work, and interesting problems worth solving. Response within one business day.
+          </div>
+        </div>
+        <div>
+          <div class="hbc-label" style="margin-bottom:12px;">Direct Email</div>
+          <a href="mailto:christophermasukume@gmail.com" class="contact-email">christophermasukume@gmail.com</a>
+          <div style="margin-top:32px;display:flex;gap:16px;">
+    <a href="https://drive.google.com/file/d/1mBBVAn2bkcrOjcJqBxKmpGYwKO2XeeFD/view?usp=sharing"
+       class="btn"
+       style="font-size:0.68rem;padding:10px 20px;"
+       target="_blank">
+        Resume PDF ↓
+    </a>
+</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-right reveal" style="transition-delay:0.1s">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-field">
+            <label>Name</label>
+            <input type="text" placeholder="Christopher Masukume" required />
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="christophermasukume@gmail.com" required />
+          </div>
+          <div class="form-field">
+            <label>Subject</label>
+            <select>
+              <option value="">Select a topic…</option>
+              <option>Job Opportunity</option>
+              <option>Freelance Project</option>
+              <option>Open Source</option>
+              <option>General</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Message</label>
+            <textarea placeholder="Describe your project or opportunity…" required></textarea>
+          </div>
+          <div class="form-submit">
+            <span class="form-note">Response within 24h</span>
+            <button type="submit" class="btn btn-solid">Send Message →</button>
+          </div>
+          <div class="success-banner" id="successBanner">
+            ✓ Message received. I'll be in touch shortly.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">© 2026 Christopher Masukume</div>
+
+    <div class="footer-center">CM.</div>
+
+    <div class="footer-right">
+      <a href="https://github.com/ChristopherMasukume" target="_blank">GitHub</a>
+
+      <a href="https://www.linkedin.com/in/christophermasukume/" target="_blank">LinkedIn</a>
+
+      <a href="mailto:christophermasukume@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      setTimeout(() => {
+        document.getElementById('successBanner').style.display = 'block';
+        btn.textContent = 'Sent ✓';
+        e.target.reset();
+      }, 900);
+    }
+
+    function downloadResume(e) {
+      e.preventDefault();
+      alert('https://drive.google.com/file/d/1mBBVAn2bkcrOjcJqBxKmpGYwKO2XeeFD/view');
+    }
+  </script>
+</body>
+</html>
