@@ -6,7 +6,7 @@ I am a Data Science graduate with a strong background in Geomatics Engineering, 
 
 Currently, I work in the geospatial industry where I combine GIS technologies, spatial analysis, data engineering, and software development to support infrastructure planning, asset management, and decision-making processes.
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 🚀 About Me
 
@@ -18,7 +18,7 @@ Currently, I work in the geospatial industry where I combine GIS technologies, s
 * 🛠 Experienced in developing data pipelines, analytical models, geospatial applications, and automation solutions
 * 📚 Continuous learner exploring AI Agents, LLMs, Cloud Technologies, and MLOps
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 💡 Areas of Expertise
 
@@ -64,7 +64,7 @@ Software Development
 * Dashboard Development
 * Data-Driven Applications
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 🛠 Technical Skills
 
@@ -124,7 +124,7 @@ Development Tools
 * Streamlit
 * Power BI
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 📈 Current Interests
 
@@ -138,7 +138,7 @@ Development Tools
 * Geospatial AI
 * Spatial Data Science
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 📂 Featured Projects
 
@@ -148,7 +148,7 @@ Machine learning project focused on analyzing workplace mental health survey dat
 
 Technologies: Python, Scikit-Learn, Pandas, Matplotlib
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 🗺 GIS Asset Management Solutions
 
@@ -156,7 +156,7 @@ Development of geospatial workflows and applications for managing utility infras
 
 Technologies: ArcGIS Pro, ArcPy, Python, SQL
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 📊 Data Engineering Pipelines
 
@@ -164,7 +164,7 @@ Design and implementation of automated ETL workflows for ingesting, transforming
 
 Technologies: Python, SQL, PostgreSQL, Azure
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 🤖 AI-Powered Business Solutions
 
@@ -172,7 +172,7 @@ Research and development of AI-driven solutions leveraging Natural Language Proc
 
 Technologies: Python, LLMs, APIs, Cloud Services
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 📚 Currently Learning
 
@@ -182,14 +182,14 @@ Technologies: Python, LLMs, APIs, Cloud Services
 * Cloud Architecture
 * Enterprise Data Platforms
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 📫 Connect With Me
 
 * LinkedIn: https://www.linkedin.com/in/christophermasukume/
 * Email: christophermasukume@gmail.com
 
-⸻
+____________________________________________________________________________________________________________________________________________________________________________________
 
 ⚡ Philosophy
 
