@@ -157,6 +157,7 @@ By day I work in the geospatial industry, combining **GIS, spatial analysis, dat
 | 🗺 **GIS Asset Management Solutions** | Geospatial workflows and apps for managing utility infrastructure, improving data quality, visualization and operational efficiency | `ArcGIS Pro` `ArcPy` `Python` `SQL` |
 | 📊 **Data Engineering Pipelines** | Automated ETL workflows for ingesting, transforming, validating and reporting business data | `Python` `SQL` `PostgreSQL` `Azure` |
 | 🤖 **AI-Powered Business Solutions** | NLP, intelligent automation and conversational AI research and prototypes | `Python` `LLMs` `APIs` `Cloud` |
+| 🤖 **GIS Asbuilt-Automation** | Automated GIS data validation from contractor submissions, improving operational efficiency and turn-around time for approvals. Saves thousands of Pulas daily. | `Python` `LLMs` `APIs` |
 
 <!-- TIP: link each project to its repo, e.g. [**Project name**](https://github.com/USERNAME/repo) -->
 
