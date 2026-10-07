@@ -19,7 +19,7 @@
 
 ## 👋 About Me
 
-I'm a **Data Science graduate** with a strong foundation in **Geomatics Engineering**, GIS, data engineering, machine learning and software development. I turn messy, complex datasets into insight, and build the pipelines, models and applications that put that insight to work.
+Hi Im glad you are here. I'm a **Data Science graduate** with a strong foundation in **Geomatics Engineering**, GIS, data engineering, machine learning and software development. I turn messy, complex datasets into insight, and build the pipelines, models and applications that put that insight to work.
 
 By day I work in the geospatial industry, combining **GIS, spatial analysis, data engineering and software development** to support infrastructure planning, asset management and decision-making.
 
@@ -44,7 +44,6 @@ By day I work in the geospatial industry, combining **GIS, spatial analysis, dat
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![C#](https://img.shields.io/badge/C%23-239120?style=flat-square&logo=csharp&logoColor=white)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white)
 
 **Data Science & ML**
@@ -190,10 +189,10 @@ By day I work in the geospatial industry, combining **GIS, spatial analysis, dat
 <!-- Replace USERNAME with your GitHub username -->
 <div align="center">
 
-<img height="170" src="https://github-readme-stats.vercel.app/api?username=USERNAME&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" alt="GitHub stats" />
-<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=USERNAME&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=ChristopherMasukume&show_icons=true&theme=tokyonight&hide_border=true&rank_icon=github" alt="GitHub stats" />
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ChristopherMasukume&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=USERNAME&theme=tokyonight&hide_border=true" alt="GitHub streak" />
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=ChristopherMasukume&theme=tokyonight&hide_border=true" alt="GitHub streak" />
 
 </div>
 
