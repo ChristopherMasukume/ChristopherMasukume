@@ -26,7 +26,8 @@ By day I work in the geospatial industry, combining **GIS, spatial analysis, dat
 |  |  |
 |---|---|
 | 🎓 **Education** | BSc Data Science, *IU International University of Applied Sciences (Germany)* · Geomatics Engineering background |
-| 💼 **Role** | GIS Technician at **Botswana Power Corporation** |
+| 💼 **Role** | GIS Data Engineer at **Botswana Power Corporation** |
+| 💼 **Role** | Data Scientist at **Lexxis** |
 | 🌍 **Location** | Botswana |
 | 🛠 **I build** | Data pipelines · analytical models · geospatial apps · automation · dashboards |
 | 📚 **Learning** | AI Agents, LLMs, cloud technologies, MLOps |
