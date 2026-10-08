@@ -19,7 +19,7 @@
 
 ## 👋 About Me
 
-Hi Im glad you are here. I'm a **Data Science graduate** with a strong foundation in **Geomatics Engineering**, GIS, data engineering, machine learning and software development. I turn messy, complex datasets into insight, and build the pipelines, models and applications that put that insight to work.
+Hi Im glad you are here. I'm a **Data Science professional** with a strong foundation in **Geomatics Engineering**, GIS, data engineering, machine learning and software development. I turn messy, complex datasets into insight, and build the pipelines, models and applications that put that insight to work.
 
 By day I work in the geospatial industry, combining **GIS, spatial analysis, data engineering and software development** to support infrastructure planning, asset management and decision-making.
 
@@ -36,7 +36,7 @@ By day I work in the geospatial industry, combining **GIS, spatial analysis, dat
 
 ---
 
-## 🧰 Tech Stack
+## 🧰 C Stack
 
 **Languages**
 
