@@ -1,7 +1,7 @@
 <!-- ======================= HEADER ======================= -->
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=200&section=header&text=Christopher%20Masukume&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Data%20Scientist%20%7C%20GIS%20Specialist%20%7C%20Data%20Engineer%20%7C%20Full-Stack%20Developer&descSize=16&descAlignY=58" alt="header" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=200&section=header&text=Christopher%20Masukume&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Data%20Scientist%20%7C%20GIS%20Specialist%20%7C%20Data%20Engineer%20%7C%20Data%20Analyst&descSize=16&descAlignY=58" alt="header" />
 
 <a href="https://git.io/typing-svg">
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=38BDF8&center=true&vCenter=true&width=700&lines=Turning+complex+datasets+into+actionable+insight;Building+geospatial+%26+data-driven+solutions;Exploring+AI+Agents%2C+LLMs+%26+MLOps" alt="Typing SVG" />
